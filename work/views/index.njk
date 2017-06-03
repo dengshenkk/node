@@ -1,0 +1,40 @@
+
+
+{#继承#}
+{%extends "base.njk"%}
+
+{#重写content#}
+{%block content%}
+
+  <div class="row">
+{#使用for循环#}
+{#遍历后台传过来的数组#}
+{%for albumName in albumArr%}
+    {{item(albumName)}}
+{%endfor%}
+</div>
+
+{%endblock%}
+
+
+
+
+
+
+
+
+
+
+
+{#定义一个函数,用来创建相册#}
+{%macro item(name)%}
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="public/images/wjj.jpg" alt="...">
+      <div class="caption">
+        <h3 class="text-center text-info">{{name}}</h3>
+        <p><a href="#" class="btn btn-primary center-block" role="button">点击查看</a></p>
+      </div>
+    </div>
+  </div>
+{%endmacro%}
